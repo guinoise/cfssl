@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eo pipefail
+
+if [ -z "${CFSSL_CA_HOST}" ]; then
+  >&2 echo "CFSSL_CA_HOST is not set"
+  exit 1
+fi
+
+bash /scripts/db_config.sh
+bash /scripts/init_ca.sh
+bash /scripts/init_config.sh
+bash /scripts/init_intermediate_ca.sh
+bash /scripts/init_ocsp_cert.sh
+bash /scripts/start_cfssl_service.sh
