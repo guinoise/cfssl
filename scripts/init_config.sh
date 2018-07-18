@@ -49,7 +49,6 @@ if [ ! -f ${CFSSL_CA_POLICY_FILE} ]; then
         }
       },
       "server": {
-        "auth_key": "auth_key",
         "usages": [
           "signing",
           "key encipherment",
@@ -58,11 +57,19 @@ if [ ! -f ${CFSSL_CA_POLICY_FILE} ]; then
         "expiry": "26280h"
       },
       "client": {
-        "auth_key": "auth_key",
         "usages": [
           "signing",
           "key encipherment",
           "client auth"
+        ],
+        "expiry": "26280h"
+      },
+      "serverclient": {
+        "usages": [
+          "signing",
+          "key encipherment",
+          "client auth",
+          "server auth"
         ],
         "expiry": "26280h"
       }
