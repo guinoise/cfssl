@@ -12,8 +12,8 @@ if [ ! -f ${CFSSL_CA_POLICY_FILE} ]; then
 {
   "signing": {
     "default": {
-      "ocsp_url": "http://${CFSSL_ADDRESS}:8889",
-      "crl_url": "http://${CFSSL_ADDRESS}:8888/crl",
+      "ocsp_url": "http://${CFSSL_CA_HOST}:8889",
+      "crl_url": "http://${CFSSL_CA_HOST}:8888/crl",
       "expiry": "26280h",
       "usages": [
         "signing",
